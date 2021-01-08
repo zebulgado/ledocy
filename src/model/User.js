@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('../database/db');
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -16,29 +16,30 @@ const UserSchema = mongoose.Schema({
     required: true
   },
   address: {
+    state: {
       type: String,
       required: true,
-
-      state: {
-          type: String,
-          required: true,
-          uppercase: true
+      uppercase: true
       },
-      city: {
-        type: String,
-        required: true
+    city: {
+      type: String,
+      required: true,
+    },
+    street: {
+      type: String,
+      required: true
+    },
+    neighborhood: {
+      type: String,
+      required: true
       },
-      neighborhood: {
-        type: String,
-        required: true
+    number: {
+      type: Number,
+      required: true
       },
-      number: {
-          type: Number,
-          required: true
-      },
-      complement: {
-          type: String,
-          required: false
+    complement: {
+      type: String,
+      required: false
       }
   },
   createdAt: {
